@@ -7,12 +7,7 @@ public class BinConverter {
 		StringBuilder result = new StringBuilder();
 		boolean negative = x < 0;
 		while(x != 0) {
-			if((x & 1) == 1) {
-				result.insert(0, '1');
-			} else {
-				result.insert(0, '0')
-				;
-			}
+			result.insert(0, x & 1);
 			x /= 2;
 		}
 		while(result.length() < 8) {
