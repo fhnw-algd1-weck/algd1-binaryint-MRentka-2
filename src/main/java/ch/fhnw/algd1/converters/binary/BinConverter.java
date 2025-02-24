@@ -3,8 +3,22 @@ package ch.fhnw.algd1.converters.binary;
 public class BinConverter {
 	public static String toString(int x) {
 		// TODO expect x to be in range [-128, 127], return string with 8 binary
-		// digits representing x in 2-complement
-		return "00000000";
+		// di gits representing x in 2-complement
+		StringBuilder result = new StringBuilder();
+		boolean negative = x < 0;
+		while(x != 0) {
+			if((x & 1) == 1) {
+				result.insert(0, '1');
+			} else {
+				result.insert(0, '0')
+				;
+			}
+			x /= 2;
+		}
+		while(result.length() < 8) {
+			result.insert(0, '0');
+		}
+		return result.toString();
 	}
 
 	public static int fromString(String text) {
